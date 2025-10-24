@@ -1,0 +1,22 @@
+Write a code to find circular rotation of an array by K positions.
+This problem asks to find the circular rotation of an array by K positions.
+
+In a circular rotation, elements that are moved from the end of the array are appended to the beginning.
+Example for array [1, 2, 3, 4, 5] and K = 2:
+After rotating the array by 2 positions, the result will be [4, 5, 1, 2, 3].
+-----------------------------------------------code-------------------------------------------------------
+
+ public static int[] rotateArray(int[] arr,int k){
+        for(int i=1;i<=k;i++){
+        arr=rotateRightbyOne(arr,arr.length);}
+        return arr;
+
+    }
+    static public int[] rotateRightbyOne(int[] arr,int length){
+        int temp=arr[length-1];
+        for(int i=length-1;i>0;i--){
+            arr[i]=arr[i-1];
+        }
+        arr[0]=temp;
+        return arr;
+    }
