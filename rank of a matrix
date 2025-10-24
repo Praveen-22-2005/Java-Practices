@@ -1,0 +1,32 @@
+ //Write a code to replace each element in an array by its rank in the array
+    /*Example for array [40, 10, 20, 30]:
+After replacing each element by its rank, the array will be [4, 1, 2, 3] (after sorting, the elements are [10, 20, 30, 40], so ranks are [1, 2, 3, 4]).*/
+    //hashmap
+    static public int[] rankOfAnArray(int arr[]){
+        HashMap<Integer,Integer> hashMap=new HashMap<>();
+        int mat[]=arr.clone();
+        Arrays.sort(mat);
+        for(int i=0;i<mat.length;i++){
+            hashMap.put(mat[i],i+1);
+        }
+        for(int i=0;i<arr.length;i++){
+            arr[i]=hashMap.get(arr[i]);
+        }
+        return arr;
+    }
+------------------------------------------------------------------------------- optimized ------------------------------------------------------------------------------------
+    static public int[] rankOfAnArray2(int arr[]){
+
+        int sortedarray[]=arr.clone();
+        Arrays.sort(sortedarray);
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr.length;j++){
+                if(arr[i]==sortedarray[j]){
+                    arr[i]=j+1;
+                    break;
+                }
+            }
+        }
+        return arr;
+
+    }
