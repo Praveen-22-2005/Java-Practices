@@ -1,0 +1,32 @@
+/*
+    This problem asks to find the elements in an array that appear only once, i.e., the non-repeating elements.
+
+These elements are unique and do not appear multiple times in the array.
+Example for array [4, 5, 4, 3, 6, 3, 7]:
+Non-repeating elements are [5, 6, 7], since ‘4’ and ‘3’ repeat.
+     */
+    public static void printNonRepeatingElements(int[] arr){
+        boolean arr2[]=new boolean[arr.length];
+        Arrays.fill(arr2,false);
+        int index=0;
+        int n=arr.length;
+
+        while(index<n){
+            int count=1;
+            if(arr2[index]==true){
+                index++;
+                continue;
+            }
+            for(int j=index+1;j<n;j++){
+              if(arr[index]==arr[j]){
+                    arr2[j]=true;
+                    count++;
+                    break;
+                }
+            }
+            if(count==1){
+            System.out.print(arr[index]+ " ");
+          }
+            index++;
+        }
+    }
