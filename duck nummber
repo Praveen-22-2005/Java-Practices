@@ -1,0 +1,13 @@
+static public void duckno(String n){
+        
+        if(n.charAt(0)=='0'){
+            System.out.println("This is not a duck number");
+return;
+        }
+        for(int i=1;i<n.length();i++){
+            if(n.charAt(i)=='0'){
+                System.out.println("This is a duck number");
+                return;
+            }
+
+        }}
